@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Selamat Malam Kamu 🤍</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            animation: fadeIn 3s ease;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            opacity: 0;
+            animation: textFade 4s ease forwards;
+            animation-delay: 1.5s;
+        }
+
+        .moon {
+            font-size: 80px;
+            animation: float 3s ease-in-out infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes textFade {
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .stars span {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.2; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="stars"></div>
+
+<div class="card">
+    <div class="moon">🌙</div>
+    <h1>Selamat Malam</h1>
+    <p>
+        Untuk kamu yang ada di sana…<br>
+        semoga malam ini memelukmu dengan tenang.<br><br>
+        semoga esok lebih baik,<br>
+        karena masih ada cita cita yang harus di capai<br>
+        semoga finalnya berjalan lancar 🤍
+    </p>
+</div>
+
+<script>
+    const stars = document.querySelector('.stars');
+    for (let i = 0; i < 100; i++) {
+        const star = document.createElement('span');
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.animationDuration = (Math.random() * 3 + 1) + 's';
+        stars.appendChild(star);
+    }
+</script>
+
+</body>
+</html>
